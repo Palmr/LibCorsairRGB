@@ -6,28 +6,27 @@
 
 #include "keymaps.h"
 
-class LibCorsairRGB
-{
-  static struct libusb_device_handle *device_handle;
-  static struct libusb_context *ctxt;
-  static unsigned char verbose_level;
-  static char red_val[144];
-  static char grn_val[144];
-  static char blu_val[144];
-public:
+lcrgb_keymap lcrgb_current_keymap;
+
+extern "C" {
+	LIBCORSAIRRGB_API extern const unsigned char lcrgb_ISO_UK;
+	LIBCORSAIRRGB_API extern const unsigned char lcrgb_ASCII_US;
+  LIBCORSAIRRGB_API int lcrgb_set_keymap(unsigned char keymap);
+
   // Set the level of verbosity to use when running commands
-  static LIBCORSAIRRGB_API void setVerbosityLevel(unsigned char level);
+  LIBCORSAIRRGB_API void lcrgb_set_verbosity_level(unsigned char level);
 
   // Initialise the library by finding and attaching to the keyboard
-  static LIBCORSAIRRGB_API int initialise(void);
+  LIBCORSAIRRGB_API int lcrgb_initialise(void);
 
   // De-Initialise the library by closing handles to the keyboard and giving back control
-  static LIBCORSAIRRGB_API void deinitialise(void);
+  LIBCORSAIRRGB_API void lcrgb_deinitialise(void);
 
   // Set the RGB value of a key
-  static LIBCORSAIRRGB_API void setKey(unsigned char x, unsigned char y, unsigned char r, unsigned char g, unsigned char b);
-  static LIBCORSAIRRGB_API void setKey(k70_iso_keymap key, unsigned char r, unsigned char g, unsigned char b);
+  LIBCORSAIRRGB_API void lcrgb_set_position(unsigned char x, unsigned char y, unsigned char r, unsigned char g, unsigned char b);
+  LIBCORSAIRRGB_API void lcrgb_set_key(lcrgb_key_enum key, unsigned char r, unsigned char g, unsigned char b);
+  LIBCORSAIRRGB_API void lcrgb_set_key_code(unsigned char key_code, unsigned char r, unsigned char g, unsigned char b);
 
   // Flush the light buffer to the keyboard
-  static LIBCORSAIRRGB_API void flushLightBuffer(void);
+  LIBCORSAIRRGB_API int lcrgb_flush_light_buffer(void);
 };
