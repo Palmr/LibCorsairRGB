@@ -5,7 +5,9 @@
 #include <stdio.h>
 
 #define CORSAIR_RGB_VID 0x1B1C
-#define CORSAIR_RGB_PID 0x1B13
+#define CORSAIR_K70_RGB_PID 0x1B13
+#define CORSAIR_K95_RGB_PID 0x1B11
+ 
 
 libusb_context *ctxt = NULL;
 struct libusb_device_handle *device_handle;
@@ -76,7 +78,7 @@ extern "C" {
 																																libusb_get_bus_number(device_list[i]), libusb_get_device_address(device_list[i]));
 					}
 
-					if (device_descriptor.idVendor == CORSAIR_RGB_VID && device_descriptor.idProduct == CORSAIR_RGB_PID) {
+					if (device_descriptor.idVendor == CORSAIR_RGB_VID && (device_descriptor.idProduct == CORSAIR_K70_RGB_PID || device_descriptor.idProduct == CORSAIR_K95_RGB_PID)) {
 						status = libusb_open(device_list[i], &device_handle);
 						if (status != 0) {
 							fprintf(stderr, "Failed to open device (libusb error: %s).\n", libusb_error_name(status));
