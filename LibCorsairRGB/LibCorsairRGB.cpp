@@ -20,7 +20,7 @@ char blu_val[144];
 extern "C" {
 
 	LIBCORSAIRRGB_API const unsigned char lcrgb_ISO_UK = 1;
-	LIBCORSAIRRGB_API const unsigned char lcrgb_ASCII_US = 2;
+	LIBCORSAIRRGB_API const unsigned char lcrgb_ANSI_US = 2;
 
 	
   int lcrgb_set_keymap(unsigned char keymap) {
@@ -28,7 +28,7 @@ extern "C" {
 			case lcrgb_ISO_UK:
 				lcrgb_current_keymap = UK_KEYMAP;
 				break;
-			case lcrgb_ASCII_US:
+			case lcrgb_ANSI_US:
 				lcrgb_current_keymap = US_KEYMAP;
 				break;
 			default:

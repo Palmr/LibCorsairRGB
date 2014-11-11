@@ -10,7 +10,7 @@ lcrgb_keymap lcrgb_current_keymap;
 
 extern "C" {
 	LIBCORSAIRRGB_API extern const unsigned char lcrgb_ISO_UK;
-	LIBCORSAIRRGB_API extern const unsigned char lcrgb_ASCII_US;
+	LIBCORSAIRRGB_API extern const unsigned char lcrgb_ANSI_US;
   LIBCORSAIRRGB_API int lcrgb_set_keymap(unsigned char keymap);
 
   // Set the level of verbosity to use when running commands
