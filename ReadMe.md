@@ -15,7 +15,10 @@ me a pull request as I'm treating this as a learning exercise too.
 ## Example ##
 See the example folder in the pre-built.zip to see some code and a pre-built binary to do some stuff with the library as it is now.
 
-See it in action over on youtube: [https://www.youtube.com/watch?v=VFE7zAsrOJI](https://www.youtube.com/watch?v=VFE7zAsrOJI)
+### Demos ###
+[Demo of the library using LibCorsairRGBTest.cpp](https://www.youtube.com/watch?v=VFE7zAsrOJI)
+
+[Snake game on my keyboard](https://www.youtube.com/watch?v=3-CTTwmzZ0Q)
 
 ## How to use ##
 If you want to build the library yourself, see below for build instructions, otherwise unzip 
